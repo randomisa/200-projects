@@ -1,0 +1,15 @@
+.hourglass-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 30%;
+    justify-content: center;
+
+    svg {
+        width: 45%;
+    }
+
+    .text {
+        text-align: center;
+        width: 45%;
+    }
+}
