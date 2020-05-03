@@ -6,7 +6,16 @@ const explCaseArray = [explCasePart1, explCasePart2];
 
 // Doors
 const doorsContainer = document.querySelector("#doors-container");
-const doorsArray = document.querySelectorAll(".doors");
+
+const doorsArray = [
+    document.querySelector("#door-1"),
+    document.querySelector("#door-2"),
+    document.querySelector("#door-3")
+];
+// const doorsArray = document.querySelectorAll(".doors");
+
+
+console.log(doorsArray);
 
 // Hourglasses
 const hourglassContainer = document.querySelector("#hourglass-container");
@@ -18,7 +27,7 @@ const hourglassArray = [hg_question, hg_minutes, hg_svg];
 
 // Explanation answers
 const explAnswers = document.querySelector("#explanation-answers");
-const explArray = [explAnswers];
+const explAnswersArray = [explAnswers];
 
 
 
@@ -37,24 +46,50 @@ function showHourglass() {
     let hourglassOffset = 0;
     // let hourglassIsDone = false;
 
-    blendIn(hourglassArray, 500, hourglassOffset, finished);
+    blendIn(hourglassArray, 500, hourglassOffset, firstPageFinished) // (explCaseContainer).then(showExplAnswers));
 };
 
-function finished() {
-    console.log('wir sind fertig')
+function firstPageFinished() {   
+    setTimeout(() =>{
+        explCaseContainer.style.display = "none";    
+        showExplAnswers();
+    }, 1000);
 }
 
+function showExplAnswers() {
+    let explAnswersOffset = 0;
 
+    doorsContainer.style.display = "flex";
 
-// blendIn(doorsArray, 500, doorsOffset);
+    blendIn(explAnswersArray, 0, explAnswersOffset, showDoors);    
+};
+
+// function loadSecondPage() {
+//     setTimeout(() => {
+//         showDoors();        
+//     }, 2000);
+// };
+
+function showDoors() {
+    let doorsOffset = 0;
+
+    blendIn(doorsArray, 1000, doorsOffset);   
+};
+
 
 function blendIn(array, timeOut, offsetVariable, finishedCallback) {
     // let functionIsDone = false;
 
     array.forEach((arrayItem, index) => {
         setTimeout(() => {
-            arrayItem.style.visibility = "visible";
-            console.log(arrayItem);
+
+            if (array == explCaseArray || array == hourglassArray || array == doorsArray) {
+                arrayItem.style.visibility = "visible";
+                console.log(arrayItem);
+            } else {
+                arrayItem.style.display = "flex";
+            };0
+                
 
             // if (index === array.length - 1) {
             if(array.slice(-1)[0] === arrayItem) {

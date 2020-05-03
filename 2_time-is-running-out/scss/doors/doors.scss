@@ -4,12 +4,27 @@
     height: 50%;
     justify-content: space-evenly;
 
+    .background-door {
+        background-color: violet;
+        border: 1px solid black;
+        background-color: burlywood;
+        height: 80%;
+        position: relative;
+        width: 30%;
+    }
     .doors {
         border: 1px solid black;
         background-color: burlywood;
         height: 80%;
         position: relative;
         width: 30%;
+
+        &#door-1,
+        &#door-2,
+        &#door-3 {
+            visibility: hidden;
+        }
+
 
         .answers-container {
             background-color: white;;
