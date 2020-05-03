@@ -1,3 +1,14 @@
 #explanation-case {
-    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    height: 60%;
+
+    .part-1 {
+        visibility: visible;
+    }
+
+    .part-2 {
+        visibility: hidden;
+    }
 }

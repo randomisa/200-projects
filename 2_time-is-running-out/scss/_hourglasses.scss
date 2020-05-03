@@ -1,15 +1,31 @@
-.hourglass-container {
+#hourglass-container {
     display: flex;
     flex-wrap: wrap;
-    height: 30%;
+    height: 40%;
     justify-content: center;
 
-    svg {
-        width: 45%;
+    .question {
+        text-align: center;
+        visibility: hidden;
     }
 
-    .text {
-        text-align: center;
-        width: 45%;
+    .svg-container {
+        visibility: hidden;
+        
+        svg {
+            height: 50%;
+            width: 45%;
+        }
     }
+
+    .minutes-container {
+        visibility: hidden;
+
+        .text {
+            padding-bottom: 1rem;
+            text-align: center;
+            width: 45%;
+        }
+    }
+
 }
