@@ -12,9 +12,18 @@ const doorsArray = [
     document.querySelector("#door-2"),
     document.querySelector("#door-3")
 ];
-// const doorsArray = document.querySelectorAll(".doors");
 
+function DifferentDoorScenarios(youtubeVideo) {
+    this.youtubeVideo = youtubeVideo;
+}
 
+const doorScenarios = {
+    door1: new DifferentDoorScenarios(doorsArray[0]),
+    door2: new DifferentDoorScenarios(doorsArray[1]),
+    door3: new DifferentDoorScenarios(doorsArray[2])
+};
+
+const doorScenariosArray = Object.values(doorScenarios);
 console.log(doorsArray);
 
 // Hourglasses
@@ -32,6 +41,8 @@ const explAnswersArray = [explAnswers];
 
 
 showExplCase();
+
+
 
 
 function showExplCase() {
@@ -73,8 +84,16 @@ function showExplAnswers() {
 function showDoors() {
     let doorsOffset = 0;
 
-    blendIn(doorsArray, 1000, doorsOffset);   
+    blendIn(doorsArray, 1000, doorsOffset, activateDoorEventListeners);
 };
+
+function activateDoorEventListeners() {
+    doorsArray.forEach(door => {
+        door.addEventListener("click", function() {
+            console.log("lol");
+        });
+    });
+}
 
 
 function blendIn(array, timeOut, offsetVariable, finishedCallback) {
@@ -88,7 +107,7 @@ function blendIn(array, timeOut, offsetVariable, finishedCallback) {
                 console.log(arrayItem);
             } else {
                 arrayItem.style.display = "flex";
-            };0
+            };
                 
 
             // if (index === array.length - 1) {
