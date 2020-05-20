@@ -1,3 +1,7 @@
+// Container
+const contentContainer = document.querySelector(".container");
+const chosenDoorContainer = document.querySelector("#chosen-door-container");
+
 // First text
 const explCaseContainer = document.querySelector("#explanation-case");
 const explCasePart1 = document.querySelector("#explanation-case .part-1");
@@ -12,19 +16,6 @@ const doorsArray = [
     document.querySelector("#door-2"),
     document.querySelector("#door-3")
 ];
-
-function DifferentDoorScenarios(youtubeVideo) {
-    this.youtubeVideo = youtubeVideo;
-}
-
-const doorScenarios = {
-    door1: new DifferentDoorScenarios(doorsArray[0]),
-    door2: new DifferentDoorScenarios(doorsArray[1]),
-    door3: new DifferentDoorScenarios(doorsArray[2])
-};
-
-const doorScenariosArray = Object.values(doorScenarios);
-console.log(doorsArray);
 
 // Hourglasses
 const hourglassContainer = document.querySelector("#hourglass-container");
@@ -43,28 +34,24 @@ const explAnswersArray = [explAnswers];
 showExplCase();
 
 
-
-
 function showExplCase() {
     let explCaseOffset = 0;
-    // let explCaseIsDone = false;
 
-    blendIn(explCaseArray, 200, explCaseOffset, showHourglass);
+    blendIn(explCaseArray, 1000, explCaseOffset, showHourglass);
 };
 
 
 function showHourglass() {
     let hourglassOffset = 0;
-    // let hourglassIsDone = false;
 
-    blendIn(hourglassArray, 500, hourglassOffset, firstPageFinished) // (explCaseContainer).then(showExplAnswers));
+    blendIn(hourglassArray, 2000, hourglassOffset, firstPageFinished) // (explCaseContainer).then(showExplAnswers));
 };
 
 function firstPageFinished() {   
     setTimeout(() =>{
         explCaseContainer.style.display = "none";    
         showExplAnswers();
-    }, 1000);
+    }, 3000);
 }
 
 function showExplAnswers() {
@@ -75,29 +62,28 @@ function showExplAnswers() {
     blendIn(explAnswersArray, 0, explAnswersOffset, showDoors);    
 };
 
-// function loadSecondPage() {
-//     setTimeout(() => {
-//         showDoors();        
-//     }, 2000);
-// };
-
 function showDoors() {
     let doorsOffset = 0;
 
-    blendIn(doorsArray, 1000, doorsOffset, activateDoorEventListeners);
+    blendIn(doorsArray, 2000, doorsOffset, activateDoorEventListeners);
 };
 
 function activateDoorEventListeners() {
     doorsArray.forEach(door => {
-        door.addEventListener("click", function() {
-            console.log("lol");
+        door.addEventListener("click", function(e) {
+            let test = door.id;
+
+            contentContainer.style.display = "none";
+
+            chosenDoorContainer.style.display = "block";
+
+            document.querySelector("." + test).style.display = "flex";
+
         });
     });
 }
 
-
 function blendIn(array, timeOut, offsetVariable, finishedCallback) {
-    // let functionIsDone = false;
 
     array.forEach((arrayItem, index) => {
         setTimeout(() => {
@@ -108,12 +94,9 @@ function blendIn(array, timeOut, offsetVariable, finishedCallback) {
             } else {
                 arrayItem.style.display = "flex";
             };
-                
 
-            // if (index === array.length - 1) {
             if(array.slice(-1)[0] === arrayItem) {
                 console.log("It's done");
-                // functionIsDone = true;
 
                 console.log(finishedCallback);
                 if (finishedCallback !== undefined) {

@@ -4,10 +4,13 @@
     padding: 0;
 }
 
+html {
+    color: rgb(241, 241, 241);
+}
 
 body {
     align-items: center;
-    background-color: white;
+    background-color: #2d2d2d;
     display: flex;
     height: 100vh;
     justify-content: center;
@@ -15,11 +18,16 @@ body {
     max-width: 100%;
     width: 100vw;
 
-    .door-container,
-    .container {
+    .container,
+    #chosen-door-container {
         height: 100%;
+        margin: 0.5rem;
         max-height: 700px;
         max-width: 500px;
         width: 100%;
+
+        @include sm {
+            margin: 0;
+        }
     }
 }

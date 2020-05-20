@@ -1,8 +1,33 @@
-.single-door-scenario {
-    height: 100%;
+#chosen-door-container {
+    display: none;
 
-    .youtube-container {
-        height: 40%;
+    .single-door-scenario {
+        align-items: center;
+        display: none;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
         width: 100%;
+
+        .title-fail,
+        .title-succes {
+            padding-bottom: 1rem;
+        }
+
+        .desc-fail,
+        .desc-succes {
+            padding-bottom: 1rem;
+            text-align: center;
+        }
+
+        .youtube-container {
+            height: 40%;
+            width: 100%;
+
+            @include md {
+                height: 50%;
+            }
+        }
     }
 }
+

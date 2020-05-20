@@ -27,13 +27,18 @@
 
 
         .answers-container {
-            background-color: white;;
+            background-color: white;
             border: 1px solid black;
-            left: 36%;
+            color: black;
+            left: 30%;
             padding: 0.5rem 1rem;
             position: absolute;
             top: 15%;
             z-index: 1;
+
+            @include md {
+                left: 36%;
+            }
 
         }
 

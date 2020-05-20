@@ -10,16 +10,20 @@
     }
 
     .svg-container {
+        height: 60%;
         visibility: hidden;
         
         svg {
+            fill: rgb(114, 158, 197);
             height: 50%;
             width: 45%;
         }
     }
 
     .minutes-container {
+        display: flex;
         visibility: hidden;
+        width: 100%;
 
         .text {
             padding-bottom: 1rem;
