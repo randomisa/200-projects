@@ -12,8 +12,7 @@ body {
     display: flex;
     font-size: 0.85rem;
     justify-content: center;
-    max-width: 100%;
-    width: 100vw;
+    width: 100%;
 
     .container {
 
@@ -21,14 +20,37 @@ body {
             height: 1500px;
 
             .text-part-one {
-                margin-top: 200px;
+                margin-top: 100px;
                 position: fixed;
             }
         }
 
         .text-part-two {
-            height: 2000px;
+            height: auto;
+            margin-bottom: 50px;
             top: 2500px;
+        }
+
+        .iframe-container{
+            align-self: center;
+            height: 0;
+            padding-bottom: 67.25%; 
+            position: relative;
+            width: 100%;
+
+            iframe {
+                height: 100%;
+                left: 0;
+                position: absolute;
+                top:0;
+                width: 100%;
+            }
+        }
+
+        .whitespace {
+            background-color: white;
+            height: 1500px;
+            width: 100%;
         }
     }
 }
