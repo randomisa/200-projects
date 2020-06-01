@@ -11,32 +11,26 @@ const weekDays = {
         "Sunday",
         "Sunday morning = Laziness overload"
     ),
-
     1: new weekDayProperties(
         "Monday",
         "And just like that *poof* weekend is gone"
     ),
-
     2: new weekDayProperties(
         "Tuesday",
         "Not sure if it's Tuesday or just a second Monday"
     ),
-
     3: new weekDayProperties(
         "Wednesday",
         "Good grief! What do you mean by today is only Wednesday?"
     ),
-
     4: new weekDayProperties(
         "Thursday",
         "Worst Friday is when you realize that it's Thurday..."
     ),
-
     5: new weekDayProperties(
         "Friday",
         "Cheers... It's finally Friday!"
     ),
-
     6: new weekDayProperties(
         "Saturday",
         "It's Saturday. Life is good"
@@ -47,5 +41,14 @@ const weekDays = {
 const weekDayArray = Object.values(weekDays);
 
 
-
 console.log(weekDayArray[d.getDay()])
+
+
+weekDayArray.forEach(day => {
+    if (day === weekDayArray[d.getDay()]) {
+
+        document.querySelector("#" + day.weekDay.toLowerCase()).style.backgroundColor = "hsl(0, 0%, 20%)"
+
+        document.querySelector("#message").textContent = day.messageForWeekDay;
+    };
+});

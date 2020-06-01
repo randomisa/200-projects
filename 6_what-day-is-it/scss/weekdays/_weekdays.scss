@@ -1,0 +1,17 @@
+$weekday-container-width: 100%;
+
+.weekdays-container {
+    display: flex;
+    height: 30%;
+    width: $weekday-container-width;
+
+    .weekday {
+        align-items: center;
+        background-color: $grey-500;
+        display: flex;
+        justify-content: center;
+        // transform: rotate(180deg);
+        width: $weekday-container-width / 7;
+        writing-mode: vertical-rl;
+    }
+}
